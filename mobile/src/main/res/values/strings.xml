@@ -13,4 +13,5 @@
     <string name="enter_uuid">Enter UUID</string>
     <string name="add_new_device">ADD NEW BEACON</string>
     <string name="remove_device">REMOVE BEACON</string>
+    <string name="calculating">Calculating...</string>
 </resources>

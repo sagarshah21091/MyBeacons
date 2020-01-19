@@ -88,6 +88,7 @@ public class MainActivity extends AppCompatActivity implements BeaconConsumer {
 
 //        beaconManager.bind(this);
         sb.append("\n" + beaconLayout + "\n");
+        sb.append("\nExample UUID -> " + UUID_Kbeacon + "\n");
         ((TextView) findViewById(R.id.txtDistance)).setText(sb.toString());
         setInitDistValue();
         setBeaconButtonDisplay();
@@ -137,6 +138,7 @@ public class MainActivity extends AppCompatActivity implements BeaconConsumer {
 
     private void setBeaconButtonDisplay() {
         if(pref.getUUID()==null) {
+            beaconManager.unbind(MainActivity.this);
             medtUUID.setText("");
             medtUUID.setEnabled(true);
             mtxtAddBeacon.setText(getString(R.string.add_new_device));
@@ -145,6 +147,8 @@ public class MainActivity extends AppCompatActivity implements BeaconConsumer {
         }
         else
         {
+            beaconManager.bind(MainActivity.this);
+            medtUUID.setText(pref.getUUID());
             medtUUID.setEnabled(false);
             mtxtAddBeacon.setText(getString(R.string.remove_device));
             mCircleView.setVisibility(View.VISIBLE);
@@ -164,7 +168,7 @@ public class MainActivity extends AppCompatActivity implements BeaconConsumer {
         mCircleView.setAutoTextSize(true); // enable auto text size, previous values are overwritten
         mCircleView.setTextMode(TextMode.TEXT); // Shows the current value
         mCircleView.setShowTextWhileSpinning(true); // Show/hide text in spinning mode
-        mCircleView.setText("Searching...");
+        mCircleView.setText(""+getString(R.string.calculating));
     }
 
     @Override
@@ -297,7 +301,7 @@ public class MainActivity extends AppCompatActivity implements BeaconConsumer {
 
     private void resetProgressView() {
         mCircleView.setTextMode(TextMode.TEXT);
-        mCircleView.setText("Searching...");
+        mCircleView.setText(""+getString(R.string.calculating));
         mCircleView.setUnitVisible(false);
         mCircleView.spin();
     }
