@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Beacon Locator</string>
+    <string name="ble_not_supported">BLE is not supported</string>
+    <string name="error_bluetooth_not_supported">Bluetooth not supported.</string>
+    <string name="unknown_device">Unknown device</string>
+
+    <!-- Menu items -->
+    <string name="menu_connect">Connect</string>
+    <string name="menu_disconnect">Disconnect</string>
+    <string name="menu_scan">Start Scan</string>
+    <string name="menu_stop">Stop Scan</string>
+    <string name="title_devices">List Of Devices</string>
+    <string name="enter_uuid">Enter UUID</string>
+    <string name="add_new_device">ADD NEW BEACON</string>
+    <string name="remove_device">REMOVE BEACON</string>
+</resources>
